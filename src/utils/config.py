@@ -1,16 +1,15 @@
-import os
 import yaml
 from pathlib import Path
 
 def load_config():
-    # Get current working directory (works for any user)
-    current_dir = Path.cwd()
+    # Get the current notebook's path using Spark SQL (works on all Databricks compute)
+    username = spark.sql("SELECT current_user()").collect()[0][0]
     
-    # Navigate up 1 level to project root
-    project_root = current_dir.parent.parent
+    # Build path to config file using the workspace structure
+    # This assumes your project is always at /Workspace/Users/{username}/coin_gecko/
+    config_path = Path(f"/Workspace/Users/{username}/coin_gecko/src/config/config.yaml")
     
-    # Single config file path
-    config_path = project_root / "config" / "config.yaml"
+    print(f"Loading config from: {config_path}")
     
     # print(f"Loading config from: {config_path}")
     

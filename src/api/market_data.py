@@ -1,6 +1,6 @@
-from api.api_call import call_api
+from src.api.api_call import call_api
 
-def get_market_data(api_key, base_url, max_pages = 250):
+def get_market_data(api_key, base_url, max_pages = 100):
     """
     Fetch cryptocurrency market data from CoinGecko API.
     
