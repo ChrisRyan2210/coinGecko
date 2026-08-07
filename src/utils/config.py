@@ -8,7 +8,7 @@ def load_config():
     # Single config file path
     config_path = project_root / "config" / "config.yaml"
     
-    print(f"Loading config from: {config_path}")
+    # print(f"Loading config from: {config_path}")
     
     # Load the YAML file
     with open(config_path, 'r') as file:
@@ -20,5 +20,5 @@ def load_config():
     # Return only the active environment's config
     config = full_config['environments'][active_env]
     config['environment'] = active_env  # Add the environment name to the config
-    
+
     return config

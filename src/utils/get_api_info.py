@@ -11,3 +11,17 @@ def get_api_info():
     base_url = config['data_source']['coin_gecko_api']['base_url']
     # print(api_key_secret)
     return api_key_secret, api_scope_secret, base_url
+
+def get_raw_storage_location():
+
+    raw_storage_path = config['storage']['raw']
+    # print(raw_storage_path)
+    
+    return raw_storage_path
+
+def get_bronze_schema_path():
+
+    bronze_schema_path = config['storage']['bronze_schema_path']
+    # print(raw_storage_path)
+    
+    return bronze_schema_path
